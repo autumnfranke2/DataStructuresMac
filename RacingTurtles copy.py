@@ -28,3 +28,16 @@ class RacingTurtle:
         
 racerone = RacingTurtle( 0, 0, "Racer one")
 eugene = RacingTurtle( 15, 500, "Eugene 'The Machine ' Topps")
+
+while True:
+    racerone.forward(1)
+    eugene.forward(1)
+
+    if racerone.turt.x>100: #fix nested object
+        print(racerone.name, "wins!")
+        break
+
+    if eugene.turt.x>100: #fix nested object
+        print(eugene.name, "wins!")
+        break
+        
