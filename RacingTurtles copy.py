@@ -20,6 +20,11 @@ class RacingTurtle:
         self.speed = 20 * (1 + (speed/100))
         self.turnDelay = 0 + turnDelay
 
-    def forward()
+    def forward(self, distance):
+        """ Moves the turtle forward soeed * distance""" #doc string (""")
+
+        self.turt.forward(distance * self.speed)
 
         
+racerone = RacingTurtle( 0, 0, "Racer one")
+eugene = RacingTurtle( 15, 500, "Eugene 'The Machine ' Topps")
