@@ -15,7 +15,10 @@ mack = Turtle()
 
 class RacingTurtle:
 
-    def __inti__ (self, speed, turnDelay): #Constructor *always include self
+    def __inti__ (self, speed, turnDelay, name): #Constructor *always include self
+        self.name = name
         self.turt = Turtle()
         self.speed = 20 * (1 + (speed/100))
         self.turnDelay = 0 + turnDelay
+
+        
