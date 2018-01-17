@@ -14,7 +14,7 @@ import turtle
 
 class RacingTurtle:
 
-    def __inti__ (self, speed, turnDelay, name): #Constructor *always include self
+    def __init__ (self, speed, turnDelay, name): #Constructor *always include self
         self.name = name
         self.turt = turtle.Turtle()
         self.speed = 20 * (1 + (speed/100))
@@ -33,11 +33,11 @@ while True:
     racerone.forward(1)
     eugene.forward(1)
 
-    if racerone.turt.x>100: #fix nested object
+    if racerone.turt.xcor() > 100: 
         print(racerone.name, "wins!")
         break
 
-    if eugene.turt.x>100: #fix nested object
+    if eugene.turt.xcor() > 100: 
         print(eugene.name, "wins!")
         break
         
