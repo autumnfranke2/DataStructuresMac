@@ -1,9 +1,8 @@
 #Racing turtles
 
-from turtle import * #star allows us to not need .turtle
+import turtle
 
-mack = Turtle()
-
+#mack = Turtle()
 #mack.forward(100)
 #mack.left(30)
 #mack.forward(100)
@@ -17,8 +16,10 @@ class RacingTurtle:
 
     def __inti__ (self, speed, turnDelay, name): #Constructor *always include self
         self.name = name
-        self.turt = Turtle()
+        self.turt = turtle.Turtle()
         self.speed = 20 * (1 + (speed/100))
         self.turnDelay = 0 + turnDelay
+
+    def forward()
 
         
