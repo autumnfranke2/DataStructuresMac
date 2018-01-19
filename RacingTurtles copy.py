@@ -20,16 +20,22 @@ class RacingTurtle:
         self.speed = 20 * (1 + (speed/100))
         self.turnDelay = 0 + turnDelay
 
+    def getX(self):
+        return self.turt.xcor()
+
+    def getY(self):
+        return self.turt.ycor()
+
     def forward(self, distance):
         """ Moves the turtle forward soeed * distance""" #doc string (""")
 
         self.turt.forward(distance * self.speed)
 
-    def turnRight(degrees):
+    def turnRight(self, degrees):
         self.turt.right(degrees)
         sleep(self.turnDelay)
 
-    def turnLeft(degreed):
+    def turnLeft(self, degrees):
         self.turt.left(degrees)
         sleep(self.turnDelay)
 
@@ -41,16 +47,31 @@ eugene.turt.penup()
 eugene.turt.sety(50)
 eugene.turt.pendown()
 
-while True:
-    racerone.forward(1)
-    eugene.forward(1)
- 
+# leg 1
+while (racerone.getX < 100):
+       racerone.forward(1)
 
-    if racerone.turt.xcor() > 100: 
-        print(racerone.name, "wins!")
-        break
+#turn
+racerone.turnRight(90)
 
-    if eugene.turt.xcor() > 100: 
-        print(eugene.name, "wins!")
-        break
+# leg 2
+    
+while (racerone.getY > -100):
+       racerone.forward(1)
+
+
+
+##while True:
+##    
+##    racerone.forward(1)
+##    eugene.forward(1)
+## 
+##
+##    if racerone.turt.xcor() > 100: 
+##        print(racerone.name, "wins!")
+##        break
+##
+##    if eugene.turt.xcor() > 100: 
+##        print(eugene.name, "wins!")
+##        break
         
