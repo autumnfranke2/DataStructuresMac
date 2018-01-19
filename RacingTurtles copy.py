@@ -25,13 +25,26 @@ class RacingTurtle:
 
         self.turt.forward(distance * self.speed)
 
+    def turnRight(degrees):
+        self.turt.right(degrees)
+        sleep(self.turnDelay)
+
+    def turnLeft(degreed):
+        self.turt.left(degrees)
+        sleep(self.turnDelay)
+
         
 racerone = RacingTurtle( 0, 0, "Racer one")
 eugene = RacingTurtle( 15, 500, "Eugene 'The Machine ' Topps")
 
+eugene.turt.penup()
+eugene.turt.sety(50)
+eugene.turt.pendown()
+
 while True:
     racerone.forward(1)
     eugene.forward(1)
+ 
 
     if racerone.turt.xcor() > 100: 
         print(racerone.name, "wins!")
