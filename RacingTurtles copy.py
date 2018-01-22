@@ -13,7 +13,7 @@ class RacingTurtle:
     def __init__ (self, speed, turnDelay, name): #Constructor *always include self
         self.name = name
         self.turt = turtle.Turtle()
-        self.speed = 20 * (1 + (speed/100))
+        self.speed = speed
         self.turnDelay = 0 + turnDelay
 
     def getX(self):
@@ -22,10 +22,8 @@ class RacingTurtle:
     def getY(self):
         return self.turt.ycor()
 
-    def forward(self, distance):
-        """ Moves the turtle forward soeed * distance""" #doc string (""")
-
-        self.turt.forward(distance * self.speed)
+    def forward(self):
+        self.turt.forward(1)
 
     def turnRight(self, degrees):
         self.turt.right(degrees)
@@ -37,77 +35,38 @@ class RacingTurtle:
 
         
 racerone = RacingTurtle( 0, 0, "Racer one")
-eugene = RacingTurtle( 15, 0.05, "Eugene 'The Machine ' Topps")
+eugene = RacingTurtle( 15, 0.5, "Eugene 'The Machine ' Topps")
 blaze = RacingTurtle( 40, 0, "Blaze")
 
 eugene.turt.penup()
 eugene.turt.sety(150)
 eugene.turt.pendown()
 
-time.clock()
-eugenestartTime = time.clock()
 
-# leg 1
-while (eugene.getX() < 100):
-       eugene.forward(1)
-
-#turn
-eugene.turnRight(90)
-
-# leg 2
+def runRace(rt):
+    time.clock()
+    startTime = time.clock()
+    #forward90
     
-while (eugene.getY() > 50):
-       eugene.forward(1)
+    #forward 100
+     runForward(100,rt)
 
-eugeneendTime = time.clock()
+    #right 90
+    rt.turnRight(90)
 
+    #forward 100
+     runForward(100,rt)
 
-
-
-
-raceronestartTime = time.clock()
-
-
-# leg 1
-while (racerone.getX() < 100):
-       racerone.forward(1)
-
-#turn
-racerone.turnRight(90)
-
-# leg 2
-    
-while (racerone.getY() > -100):
-       racerone.forward(1)
+def runForward(dist, rt):
+    Distance = int(dist * (1 - rt.speed/100))
+    for i in range(leg1Distance):
+        rt.forward()
 
 
+print(runRace(eugene))
+print(runRace(racerone))
+print(runRace(blaze))
 
-       
-
-blazestartTime = time.clock()
-
-# leg 1
-while (blaze.getX() < 100):
-       blaze.forward(1)
-
-#turn
-blaze.turnRight(90)
-
-# leg 2
-    
-while (blaze.getY() > -100):
-       blaze.forward(1)
-
-blazeendTime = time.clock()
-
-
-
-
-print(eugeneendTime - eugenestartTime)
-
-print(raceronestartTime - raceroneendTime)
-
-print(blazeendTime - blazestartTime)
 
 
 
