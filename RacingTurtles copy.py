@@ -7,6 +7,7 @@ import time
 #Racerone - average turtle
 #Eugene - runs 15% faster than an average turtle, but must wait .5 second before he can turn
 #Blaze -retired, but runs at 40% increased speed
+#Zeus the lightning racer - 50% faster turns default speed
 
 class RacingTurtle:
 
@@ -14,7 +15,7 @@ class RacingTurtle:
         self.name = name
         self.turt = turtle.Turtle()
         self.speed = speed
-        self.turnDelay = 0 + turnDelay
+        self.turnDelay = 0.3 + turnDelay
 
     def getX(self):
         return self.turt.xcor()
@@ -37,6 +38,7 @@ class RacingTurtle:
 racerone = RacingTurtle( 0, 0, "Racer one")
 eugene = RacingTurtle( 15, 0.5, "Eugene 'The Machine ' Topps")
 blaze = RacingTurtle( 40, 0, "Blaze")
+zeus = RacingTurtle(0,-.15, "Zeus 'The Lightning Racer'")
 
 eugene.turt.penup()
 eugene.turt.sety(150)
@@ -46,16 +48,12 @@ eugene.turt.pendown()
 def runRace(rt):
     time.clock()
     startTime = time.clock()
-    #forward90
     
-    #forward 100
-     runForward(100,rt)
+    runForward(100,rt)
 
-    #right 90
     rt.turnRight(90)
 
-    #forward 100
-     runForward(100,rt)
+    runForward(100,rt)
 
 def runForward(dist, rt):
     Distance = int(dist * (1 - rt.speed/100))
@@ -66,6 +64,7 @@ def runForward(dist, rt):
 print(runRace(eugene))
 print(runRace(racerone))
 print(runRace(blaze))
+print(runRace(zeus))
 
 
 
