@@ -44,16 +44,31 @@ eugene.turt.penup()
 eugene.turt.sety(150)
 eugene.turt.pendown()
 
+raceTest = [100,90,100,-90,100]
 
-def runRace(rt):
+irtlOval = [100,-90,100,-90,200,-90,100,-90,100]
+
+commandCounter = 0
+
+def runRace(rt , track):
     time.clock()
     startTime = time.clock()
+
+    for distance in track:
+
+        if commandCounter % 2 == 0:
+            runForward(distance,rt)
+        else:
+            rt.turnRight(distance)
+
+        commandCounter += 1
+        
     
-    runForward(100,rt)
-
-    rt.turnRight(90)
-
-    runForward(100,rt)
+##    runForward(100,rt)
+##
+##    rt.turnRight(90)
+##
+##    runForward(100,rt)
 
 def runForward(dist, rt):
     Distance = int(dist * (1 - rt.speed/100))
@@ -61,10 +76,10 @@ def runForward(dist, rt):
         rt.forward()
 
 
-print(runRace(eugene))
-print(runRace(racerone))
-print(runRace(blaze))
-print(runRace(zeus))
+print(runRace(eugene,irtlOval))
+print(runRace(racerone,irtlOval))
+print(runRace(blaze,irtlOval))
+print(runRace(zeus,irtlOval))
 
 
 
