@@ -34,21 +34,23 @@ class RacingTurtle:
         self.turt.left(degrees)
         time.sleep(self.turnDelay)
 
-        
+#Turtles
+
+racers = [racerone,eugene,blaze,zeus]
+
 racerone = RacingTurtle( 0, 0, "Racer one")
 eugene = RacingTurtle( 15, 0.5, "Eugene 'The Machine ' Topps")
 blaze = RacingTurtle( 40, 0, "Blaze")
 zeus = RacingTurtle(0,-.15, "Zeus 'The Lightning Racer'")
 
-eugene.turt.penup()
-eugene.turt.sety(150)
-eugene.turt.pendown()
-
+#Race Tracks
 raceTest = [100,90,100,-90,100]
 
 irtlOval = [100,-90,100,-90,200,-90,100,-90,100]
 
 commandCounter = 0
+
+#Running Races
 
 def runRace(rt , track):
     time.clock()
@@ -62,24 +64,29 @@ def runRace(rt , track):
             rt.turnRight(distance)
 
         commandCounter += 1
-        
-    
-##    runForward(100,rt)
-##
-##    rt.turnRight(90)
-##
-##    runForward(100,rt)
+
 
 def runForward(dist, rt):
     Distance = int(dist * (1 - rt.speed/100))
     for i in range(leg1Distance):
         rt.forward()
 
+def reposRacers(racerlist):
+    currentRacer = 0
+    startpos = len(racers) * 250 - (len(racers) * 125) * -1
+    for racer in racerlist:
+        racer.turt.penup()
+        racer.turt.setx(startpos + (125 * currentRacer))
+        racer.turt.pendown()
+        currentRacer += 1
 
-print(runRace(eugene,irtlOval))
-print(runRace(racerone,irtlOval))
-print(runRace(blaze,irtlOval))
-print(runRace(zeus,irtlOval))
+
+turtle.screensize(len(racers) * 250, 300)
+
+reposRacers(racers)
+
+for racer in racers:
+    print(racer.name, runRace(racer , irtlOval))
 
 
 
