@@ -73,10 +73,10 @@ def runForward(dist, rt):
 
 def reposRacers(racerlist):
     currentRacer = 0
-    startpos = len(racers) * 250 - (len(racers) * 125) * -1
+    startpos = (len(racers) * 250 - (len(racers)) * 125) * -1
     for racer in racerlist:
         racer.turt.penup()
-        racer.turt.setx(startpos + (125 * currentRacer))
+        racer.turt.setx(startpos + (250 * currentRacer))
         racer.turt.pendown()
         currentRacer += 1
 
