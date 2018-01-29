@@ -36,12 +36,12 @@ class RacingTurtle:
 
 #Turtles
 
-racers = [racerone,eugene,blaze,zeus]
-
 racerone = RacingTurtle( 0, 0, "Racer one")
 eugene = RacingTurtle( 15, 0.5, "Eugene 'The Machine ' Topps")
 blaze = RacingTurtle( 40, 0, "Blaze")
 zeus = RacingTurtle(0,-.15, "Zeus 'The Lightning Racer'")
+
+racers = [racerone, eugene, blaze, zeus]
 
 #Race Tracks
 raceTest = [100,90,100,-90,100]
@@ -53,6 +53,7 @@ commandCounter = 0
 #Running Races
 
 def runRace(rt , track):
+    commandCounter = 0
     time.clock()
     startTime = time.clock()
 
