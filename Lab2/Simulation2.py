@@ -30,31 +30,41 @@ PatientInfo = Patient()
 
 def callNurse():
     from operator import itemgetter, attrgetter, methodcaller
+
     """move patient from waiting room to triage room"""
     
-    triageRoom.append(waitingRoom.pop(0))
-    sorted(triageRoom, key = lambda x: x[2])
-    print("Triage Room:", triageRoom)
+    if len(examRoom) < 7:
+        examRoom.append(waitingRoom.pop(0))
+        print("Exam Room: ", examRoom)
+        TimeinExam()
+    else:
+        triageRoom.append(waitingRoom.pop(0))
+        sorted(triageRoom, key = lambda x: x[2])
+        print("Triage Room:", triageRoom)
+        
     
     """nurse moves patient from triage room to exam room"""
-    ExamRoom()
+
 def enterWaitingRoom():
     waitingRoom.append((PatientInfo.name, PatientInfo.triageNumber,
                         PatientInfo.arrivalTime))
     print("Waiting Room:", waitingRoom)
 
-def exit():
-    examRoom.remove()
 
-def ExamRoom():
-        if len(examRoom) < 7 :
-            examRoom.append(triageRoom.pop(0))
-            print("Exam Room: ", examRoom)
-        else:
-            print("Triage Room:", triageRoom)
+def TimeinExam():
+    print(PatientInfo.treatmentTime)
+    while (PatientInfo.treatmentTime > 0):
+        PatientInfo.treatmentTime -= 1
+        print(PatientInfo.treatmentTime)
+    exit()
+    print("Exam Room: ", examRoom)
+
+def exit():
+    examRoom.pop(0)
 
 
 time.clock()
 enterWaitingRoom()
 callNurse()
+
 
