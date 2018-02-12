@@ -8,7 +8,7 @@ number = int(input('Enter a number: ' ))
 def RecursionPractice():
     steps = 0
 
-    while(number > 0):
+    while(number > 1):
         
         if number == 0:
             print(steps)
