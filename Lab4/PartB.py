@@ -1,33 +1,52 @@
 #Autumn Franke
 # class work 
-# Fib
+# part B
 import time
+
+a = int(input("enter number: "))
 
 def fib(n):
     time.clock()
     time.clock()
+    
     x = 1
     y = 1
     z = 0
     
-    for i in range(n):
+    for i in range(n-2):
         z = x + y
         x = y
         y = z
-
-    return(y, "runtime for non-recursion " ,time.clock())
-
+    return(y)
 
 
 def fibRecursive(n):
     time.clock()
     time.clock()
 
-    if(n<1):
-        return(1)
+    if(n <= 1):
+        return(n)
     else:
-        return (fib(n-1) + fib(n-2))
-    return ("runtime for recursion ", time.clock())
+        return (fibRecursive(n-1) + fibRecursive(n-2))
+    
 
-print(fib(50))
-print(fibRecursive(50))
+
+nonRecursion = ("non-recursion: ", fib(a), "runtime for non-recursion ", time.clock())
+Recursion = ("recursion: ", fibRecursive(a), "runtime for recursion ", time.clock())
+
+nonRecursiveTime = nonRecursion[3:4]
+RecursiveTime = Recursion[3:4]
+
+
+
+def timeComparison():
+    if nonRecursiveTime > RecursiveTime:
+        return("Recursion was faster")
+    else:
+        return("non Recursion was faster")
+
+
+
+print(nonRecursion)
+print(Recursion)
+print(timeComparison())
