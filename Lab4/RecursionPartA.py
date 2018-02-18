@@ -2,22 +2,18 @@
 #February 11th
 #Part A
 
-
-number = int(input('Enter a number: ' ))
-
-def RecursionPractice():
+def RecursionPractice(number):
+    
     steps = 0
 
     while(number > 1):
         
-        if number == 0:
-            print(steps)
-        elif number / 2:
+        if number % 2 == 0:
             steps += 1
-            print(steps)
+            number = number / 2
         else:
-            (number * 3) + 1
+            number = (number * 3) + 1
             steps += 1
-            print(steps)
+    print("total steps: ", steps)
 
-RecursionPractice()
+RecursionPractice(number = int(input('Enter a number: ' )))
