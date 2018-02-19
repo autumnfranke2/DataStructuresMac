@@ -7,7 +7,6 @@ a = int(input("enter number: "))
 
 def fib(n):
     time.clock()
-    time.clock()
     
     x = 1
     y = 1
@@ -23,7 +22,6 @@ nonRecursion = ("non-recursion: ", fib(a), "runtime for non-recursion ", time.cl
 
 def fibRecursive(n):
     time.clock()
-    time.clock()
 
     if(n <= 1):
         return(n)
@@ -32,21 +30,23 @@ def fibRecursive(n):
 
 Recursion = ("recursion: ", fibRecursive(a), "runtime for recursion ", time.clock())
 
+
 #PartC
+fibList = [1,1]
+n = a
+for i in range(n):
+    fibList.append(0)
 
-def fibDynamic(n):
-    fibList = [0,1]
     time.clock()
-    time.clock()
+def fibDynamic(x):
 
-    if(n <= 1):
-        return(fibList[n])
-    else:
-        fibList.append(fibList[n-1] + fibList[n-2])
-    return fibList[n]
-    
+    if fibList[x] == 0:
+        fibList[x] = (fibDynamic(x-1) + fibDynamic(x-2))
+    return fibList[x]
 
-Dynamic = ("dynamic: ", fibDynamic(a), "runtime for Dynamic ", time.clock())
+Dynamic = ("dynamic: ", fibDynamic(n), "runtime for Dynamic ", time.clock())
+
+
 
 # Comparisons
 def timeComparison():
