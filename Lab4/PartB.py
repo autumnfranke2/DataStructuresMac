@@ -19,6 +19,7 @@ def fib(n):
         y = z
     return(y)
 
+nonRecursion = ("non-recursion: ", fib(a), "runtime for non-recursion ", time.clock())
 
 def fibRecursive(n):
     time.clock()
@@ -28,11 +29,9 @@ def fibRecursive(n):
         return(n)
     else:
         return (fibRecursive(n-1) + fibRecursive(n-2))
-    
 
-
-nonRecursion = ("non-recursion: ", fib(a), "runtime for non-recursion ", time.clock())
 Recursion = ("recursion: ", fibRecursive(a), "runtime for recursion ", time.clock())
+
 
 nonRecursiveTime = nonRecursion[3:4]
 RecursiveTime = Recursion[3:4]
