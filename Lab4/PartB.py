@@ -48,7 +48,7 @@ def fibDynamic(n):
 
 Dynamic = ("dynamic: ", fibDynamic(a), "runtime for Dynamic ", time.clock())
 
-
+# Comparisons
 def timeComparison():
     nonRecursiveTime = nonRecursion[3:4]
     RecursiveTime = Recursion[3:4]
