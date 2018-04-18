@@ -46,9 +46,9 @@ class MyStack:
         self.length += 1
 
     def __str__(self):
-        output = str(self.tail.value)
+        output = str(self.head.value)
 
-        ci = self.tail
+        ci = self.head
         for i in range(self.length-1):
             ci = ci.next
             output += str(ci.value) + ', '
