@@ -13,7 +13,6 @@ clock = pygame.time.Clock()
 grey = (211,211,211)
 clickedgrey = (169,169,169)
 font2 = pygame.font.SysFont("Arial", 12)
-
 currentbox = 1
 
 def textandrectangle(rx,ry,txtbxnum, events,correctaswr):
