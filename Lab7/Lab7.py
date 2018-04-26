@@ -42,7 +42,7 @@ class MyStack:
         else:
             li.prev = self.tail
             self.tail.next = li
-        self.tail = li
+        self.head = li
         self.length += 1
 
     def __str__(self):
@@ -51,7 +51,7 @@ class MyStack:
         ci = self.head
         for i in range(self.length-1):
             ci = ci.next
-            output += str(ci.value) + ', '
+            output += (str(ci.value)) + ', '
 
         return output
 

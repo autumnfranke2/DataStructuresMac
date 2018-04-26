@@ -15,6 +15,7 @@ clickedgrey = (169,169,169)
 font2 = pygame.font.SysFont("Arial", 12)
 currentbox = 1
 
+
 def textandrectangle(rx,ry,txtbxnum, events,correctaswr):
         global currentbox 
         rectanglebox =  pygame.draw.rect(screen,grey, (rx, ry, 10, 10))
@@ -25,21 +26,18 @@ def textandrectangle(rx,ry,txtbxnum, events,correctaswr):
                         if rectanglebox.collidepoint(px, py):
                                 txtbxnum.color = (255,0,0)
                                 pygame.draw.rect(screen,clickedgrey, (rx, ry, 10, 10))
-                                currentbox = txtbxnum                               
-                        else:
-                                if event.type == pygame.KEYUP:
-                                        if pygame.key.get_pressed() == correctaswr:
-                                                currentbox.color(0,255,0)
-                                        else:
-                                                currentbox.color(255,0,0)
+                                currentbox = txtbxnum
+                                if txtbxnum.correctans == txtbxnum.restricted:
+                                        txtbxnum.color = (0,255,0)
                                                 
         if currentbox == txtbxnum:
-                currentbox.update(events)                                
+                currentbox.update(events)
+        
 
 def Board():
         
         #Across1 (Ron)
-        txtbx1 = eztext.Input(maxlength=1, color=(0,0,0), prompt='1 & 4: ', x=281, y = 120)
+        txtbx1 = eztext.Input(maxlength=1, color=(0,0,0), prompt='1 & 4: ', restricted = 'r', correctans = 'r' ,x=281, y = 120)
         txtbx2 = eztext.Input(maxlength=1, color=(0,0,0), prompt='', x=324, y = 120)
         txtbx3 = eztext.Input(maxlength=1, color=(0,0,0), prompt='', x=336, y = 120)
         #Down2 (Seven (n) is in Ron(Across1))
@@ -119,7 +117,7 @@ def Board():
         txtbx69 = eztext.Input(maxlength=1, color=(0,0,0), prompt=' ', x=226, y = 192)
         txtbx70 = eztext.Input(maxlength=1, color=(0,0,0), prompt=' ', x=226, y = 204)
 
-        correct1 = "R"
+        correct1 = "r"
         correct2 = "o"
         correct3 = "n"
 
@@ -199,7 +197,8 @@ def Board():
         correct69 = "f"
         correct70 = "o"
 
-        
+  
+
         done = False
         while not done:
                 events = pygame.event.get()

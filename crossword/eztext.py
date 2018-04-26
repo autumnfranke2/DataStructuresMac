@@ -21,7 +21,7 @@ class Input:
         """ Options: x, y, font, color, restricted, maxlength, prompt """
         self.options = Config(options, ['x', '0'], ['y', '0'], ['font', 'pygame.font.Font(None, 15)'],
                               ['color', '(0,0,0)'], ['restricted', '\'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&\\\'()*+,-./:;<=>?@[\]^_`{|}~\''],
-                              ['maxlength', '-1'], ['prompt', '\'\''])
+                              ['maxlength', '-1'], ['prompt', '\'\''],['correctans','\'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!"#$%&\\\'()*+,-./:;<=>?@[\]^_`{|}~\''])
         self.x = self.options.x; self.y = self.options.y
         self.font = self.options.font
         self.color = self.options.color
@@ -29,6 +29,7 @@ class Input:
         self.maxlength = self.options.maxlength
         self.prompt = self.options.prompt; self.value = ''
         self.shifted = False
+        self.correctans = self.options.correctans
 
     def set_pos(self, x, y):
         """ Set the position to x, y """
