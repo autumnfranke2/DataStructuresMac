@@ -27,7 +27,7 @@ class Input:
         self.color = self.options.color
         self.restricted = self.options.restricted
         self.maxlength = self.options.maxlength
-        self.prompt = self.options.prompt; self.value = ''
+        self.prompt = self.options.prompt; self.value = '_'
         self.shifted = False
         self.correctans = self.options.correctans
 
